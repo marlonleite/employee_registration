@@ -26,4 +26,5 @@ router.register(r'employees', EmployeeViewSet, basename="Employee")
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('address/', include("addresses.api.urls")),
 ]
