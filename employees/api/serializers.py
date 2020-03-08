@@ -45,8 +45,9 @@ class EmployeeSerializer(serializers.ModelSerializer):
         address_data = validated_data.get('address')
 
         if address_data:
-            instance.address.__dict__.update(**address_data)
-            instance.address.save()
+            if getattr(instance, 'address'):
+                instance.address.__dict__.update(**address_data)
+                instance.address.save()
 
         instance.__dict__.update(**validated_data)
         instance.save()
