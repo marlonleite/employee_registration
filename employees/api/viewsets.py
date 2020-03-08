@@ -6,7 +6,7 @@ from ..models import Employee
 
 class EmployeeViewSet(ModelViewSet):
     """
-    EmployeeViewSet :GET, POST, PATCH, DEL
+    EmployeeViewSet :GET, :POST, :PATCH, :DELETE
     """
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
