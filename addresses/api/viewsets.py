@@ -17,6 +17,7 @@ class ConsultAddressApi(APIView):
         """
         Method Get address
         :param zip_code: <int>
+        :query parameters: <String> "federated_state", "city", "street"
         :return: dict address
         """
         if zip_code:
