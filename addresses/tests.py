@@ -12,12 +12,27 @@ class ConsultAddressApiTest(APITestCase):
         self.zip_code = '57052180'
         self.zip_code2 = '5701551435'
 
-    def test_address_url(self):
+    def test_address_url_zip_code(self):
         """
         Ensure we can consult by site_url/address/<zip_code>/.
         """
         url = reverse('address-zip_code', args=[self.zip_code])
         response = self.client.get(url, format="json")
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_address_url_query_params(self):
+        """
+        Ensure we can consult by
+        site_url/address/?federated_state=value&city=value&street=value.
+        """
+        query_params = {
+            'federated_state': 'AL',
+            'city': 'Maceió',
+            'street': 'Rua Centro',
+        }
+        url = reverse('address')
+        response = self.client.get(url, query_params, format="json")
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
