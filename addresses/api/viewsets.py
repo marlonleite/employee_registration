@@ -2,6 +2,8 @@ import logging
 
 import requests
 from django.conf import settings
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from requests import ReadTimeout, ConnectionError
 from rest_framework import status
 from rest_framework.response import Response
@@ -13,6 +15,7 @@ class ConsultAddressApi(APIView):
     View to consult Zip Code.
     """
 
+    @method_decorator(cache_page(60 * 60 * 2))
     def get(self, request, zip_code=None):
         """
         Method Get address
