@@ -24,6 +24,28 @@ git clone https://github.com/marlonleite/employee_registration.git
 
 ### Installation
 
+create a .env file to root dir
+```
+- project:
+  - .env
+```
+update the file .env with:
+```
+SECRET_KEY=value
+DEBUG=value
+ALLOWED_HOSTS=value
+
+DATABASE_ENGINE=value
+DATABASE_USER=value
+DATABASE_PASSWORD=value
+DATABASE_NAME=value
+DATABASE_HOST=value
+DATABASE_PORT=value
+
+GOCEP_URL=value
+```
+- check the env.exemple
+
 Virtualenv:
 ```
 python3 --version
