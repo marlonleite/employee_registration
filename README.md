@@ -65,6 +65,9 @@ Docker:
 Create:
 docker-compose up -d
 
+Access:
+http://127.0.0.1:8000
+
 Drop:
 docker-compose down
 
@@ -83,13 +86,13 @@ GET /api/address/?federated_state=<string>&city=<string>&street=<string>/
 ```
 
 ```
-Response:
+Response 200:
 {
-    "zip_code": "string",
-    "federated_state": "string",
-    "city": "string",
-    "street": "string",
-    "neighborhood": "string"
+    "zip_code": <string>,
+    "federated_state": <string>,
+    "city": <string>,
+    "street": <string>,
+    "neighborhood": <string>
 }
 ```
 
@@ -124,7 +127,7 @@ Create employee:
 POST /api/employees/
 ```
 ```
-data json:
+Data json:
 {
     "name": <string>,
     "document": <string>,
@@ -163,7 +166,7 @@ Update employee:
 PATCH /api/employees/<id>/
 ```
 ```
-data json:
+Data json:
 {
     ...
     "name": <string>
@@ -173,11 +176,13 @@ data json:
 or
 
 {
+    ...
     "address": {
         ...
         "number": <int>
         ...
     }
+    ...
 }
 
 ```
