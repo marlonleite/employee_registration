@@ -15,6 +15,7 @@ With this API:
 - Django 3.0.4
 - Django Rest Framework 3.11.0
 - Postgres latest
+- GoCep API
 ```
 
 ### Clone the repository
