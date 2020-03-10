@@ -76,10 +76,10 @@ docker-compose down
 
 ## How it works:
 
-Consulting address:
+Request URL:
 
 ```
-GET /api/address/<int:zip_code>/
+GET /api/address/<zip_code>/
 ```
 or
 ```
