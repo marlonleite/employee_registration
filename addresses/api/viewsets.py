@@ -4,6 +4,7 @@ import requests
 from django.conf import settings
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
+from drf_yasg.utils import swagger_auto_schema
 from requests import ReadTimeout, ConnectionError
 from rest_framework import status
 from rest_framework.response import Response
@@ -15,7 +16,7 @@ class ConsultAddressZipCodeApi(APIView):
     Show a address view by zip code
     """
 
-    @method_decorator(cache_page(60 * 60 * 2))
+    @method_decorator(cache_page(60))
     def get(self, request, zip_code):
         try:
             url = f"{settings.GOCEP_URL}/api/{zip_code}"
@@ -35,12 +36,10 @@ class ConsultAddressApi(APIView):
     Show a address view by url query params
     """
 
-    @method_decorator(cache_page(60 * 60 * 2))
+    @swagger_auto_schema(
+        operation_description="GET /address/?federated_state={federated_state}&city={city}&street={street}")
+    @method_decorator(cache_page(60))
     def get(self, request, format=None):
-        """
-        :parameter url: federated_state, city, street
-
-        """
         address_data = {}
         for k, v in request.query_params.items():
             address_data.update({k: v})

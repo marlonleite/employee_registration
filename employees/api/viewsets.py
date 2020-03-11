@@ -7,7 +7,7 @@ from .serializers import EmployeeSerializer
 from ..models import Employee
 
 
-@method_decorator(cache_page(60 * 2), name="list")
+@method_decorator(cache_page(60), name="list")
 @method_decorator(vary_on_cookie, name="list")
 class EmployeeViewSet(ModelViewSet):
     """
