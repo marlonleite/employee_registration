@@ -15,7 +15,7 @@ With this API:
 - Django 3.0.4
 - Django Rest Framework 3.11.0
 - Postgres latest
-- GoCep API
+- GoCep API 
 ```
 
 ### Clone the repository
@@ -236,3 +236,9 @@ Go there:
 
 * **Marlon Leite** - [GitHub](https://github.com/marlonleite)
 
+## Links
+
+* [GoCep API](https://github.com/marlonleite/gocep)
+* [Python3](https://www.python.org/download/releases/3.0/)
+* [Django](https://docs.djangoproject.com)
+* [Django Rest Framework](https://www.django-rest-framework.org/)
